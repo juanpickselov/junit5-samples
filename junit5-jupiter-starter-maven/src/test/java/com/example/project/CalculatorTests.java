@@ -20,7 +20,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 class CalculatorTests {
 
 	@Test
-	@DisplayName("1 + 1 = 2")
+	@DisplayName("Addition")
 	void addsTwoNumbers() {
 		Calculator calculator = new Calculator();
 		assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2");
@@ -30,7 +30,7 @@ class CalculatorTests {
 	@DisplayName("12 * 5 = 60")
 	void multipliesTwoNumbers() {
 		Calculator calc = new Calculator();
-		assertEquals(60, calc.mult(12, 5), "12 * 5 should be 60");
+		assertEquals(60, calc.multiply(12, 5), "12 * 5 should be 60");
 	}
 
 	@ParameterizedTest(name = "{0} + {1} = {2}")
@@ -53,9 +53,10 @@ class CalculatorTests {
 			"12,  5, 60",
 			"2,  2, 4"
 	})
+	@DisplayName("Multiply each set of two numbers")
 	void mult(int first, int second, int expectedResult) {
 		Calculator calculator = new Calculator();
-		assertEquals(expectedResult, calculator.mult(first, second),
+		assertEquals(expectedResult, calculator.multiply(first, second),
 				() -> first + " * " + second + " should equal " + expectedResult);
 	}
 
