@@ -26,6 +26,13 @@ class CalculatorTests {
 		assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2");
 	}
 
+	@Test
+	@DisplayName("12 * 5 = 60")
+	void multipliesTwoNumbers() {
+		Calculator calc = new Calculator();
+		assertEquals(60, calc.mult(12, 5), "12 * 5 should be 60");
+	}
+
 	@ParameterizedTest(name = "{0} + {1} = {2}")
 	@CsvSource({
 			"0,    1,   1",
@@ -38,4 +45,18 @@ class CalculatorTests {
 		assertEquals(expectedResult, calculator.add(first, second),
 				() -> first + " + " + second + " should equal " + expectedResult);
 	}
+
+	@ParameterizedTest(name = "{0} * {1} = {2}")
+	@CsvSource({
+			"0,    1,   0",
+			"1,    2,   2",
+			"12,  5, 60",
+			"2,  2, 4"
+	})
+	void mult(int first, int second, int expectedResult) {
+		Calculator calculator = new Calculator();
+		assertEquals(expectedResult, calculator.mult(first, second),
+				() -> first + " * " + second + " should equal " + expectedResult);
+	}
+
 }
