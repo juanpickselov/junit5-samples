@@ -25,6 +25,13 @@ class CalculatorTests {
         assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2")
     }
 
+    @Test
+    fun `3 * 2 = 6`() {
+        val calculator = Calculator()
+        assertEquals(6, calculator.mult(3, 2), "3 * 2 should equal 6")
+    }
+
+
     @ParameterizedTest(name = "{0} + {1} = {2}")
     @CsvSource(
             "0,    1,   1",

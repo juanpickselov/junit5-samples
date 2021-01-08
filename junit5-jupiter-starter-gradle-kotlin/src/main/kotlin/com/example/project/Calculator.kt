@@ -21,4 +21,8 @@ class Calculator {
         return a / b * 1.0
     }
 
+    fun mult(c: Int, d: Int): Int {
+        return c * d
+    }
+
 }
